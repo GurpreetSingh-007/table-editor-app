@@ -1,23 +1,32 @@
 
 // PostgreSQL helper functions using pg library
 const { Pool } = require('pg');
-const config = require('./config');
 
-// Create pool with either DATABASE_URL or individual config
-const poolConfig = config.pg.connectionString 
-  ? { connectionString: config.pg.connectionString, ssl: config.pg.ssl }
-  : {
-      host: config.pg.host,
-      port: config.pg.port,
-      database: config.pg.database,
-      user: config.pg.user,
-      password: config.pg.password,
-      ssl: config.pg.ssl
-    };
+// Create pool configuration
+let poolConfig;
+
+if (process.env.DATABASE_URL) {
+  // Production mode - use DATABASE_URL with SSL
+  poolConfig = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  };
+} else {
+  // Development mode - use individual env vars
+  poolConfig = {
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 5432,
+    database: process.env.DB_NAME || 'table_editor',
+    user: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || 'postgres',
+    ssl: false
+  };
+}
 
 console.log('PostgreSQL pool config:', { 
   ...poolConfig, 
-  connectionString: poolConfig.connectionString ? '[REDACTED]' : undefined 
+  connectionString: poolConfig.connectionString ? '[REDACTED]' : undefined,
+  password: poolConfig.password ? '[REDACTED]' : undefined
 });
 
 const pool = new Pool(poolConfig);
