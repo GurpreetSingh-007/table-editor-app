@@ -4,9 +4,9 @@ A collaborative real-time table editor built with React, Node.js, PostgreSQL, an
 
 ## 🚀 Live Demo
 
-- **Frontend**: [Live Application](https://your-app.vercel.app)
-- **Backend API**: [API Endpoint](https://your-api.railway.app)
-- **Repository**: [GitHub Source](https://github.com/yourusername/table-editor-app)
+- **Frontend**: [Live Application](https://table-editor-app.vercel.app)
+- **Backend API**: [API Endpoint](https://table-editor-backend.railway.app)
+- **Repository**: [GitHub Source](https://github.com/GurpreetSingh-007/table-editor-app)
 
 ## ✨ Features
 
@@ -52,7 +52,7 @@ A collaborative real-time table editor built with React, Node.js, PostgreSQL, an
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/table-editor-app.git
+   git clone https://github.com/GurpreetSingh-007/table-editor-app.git
    cd table-editor-app
    ```
 
@@ -257,9 +257,9 @@ cd frontend && npm test
 
 ## 👨‍💻 Developer
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+**Gurpreet Singh**
+- GitHub: [@GurpreetSingh-007](https://github.com/GurpreetSingh-007)
+- Email: abcjob485@gmail.com
 
 ## 📄 License
 
