@@ -306,6 +306,22 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Database setup endpoint (for production initialization)
+  if (req.method === 'POST' && req.url === '/setup-database') {
+    const { setupDatabase } = require('./setup-database');
+    setupDatabase()
+      .then(() => {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, message: 'Database initialized successfully' }));
+      })
+      .catch((error) => {
+        console.error('Database setup error:', error);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Database setup failed', details: error.message }));
+      });
+    return;
+  }
+
   // Default response
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Table Editor Backend Running');
