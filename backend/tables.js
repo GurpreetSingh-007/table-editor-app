@@ -4,14 +4,15 @@ const { pgSend } = require('./pg');
 
 // Create a new table
 function createTable(tableName, parentTableId, callback) {
-  // parentTableId is null for top-level tables
-  const sql = `INSERT INTO tables (name, parent_id) VALUES ('${tableName}', ${parentTableId ? parentTableId : 'NULL'});`;
+  // For now, use a default user_id of 1, and empty data object
+  // In a real app, you'd get user_id from authentication
+  const sql = `INSERT INTO tables (user_id, name, data) VALUES (1, '${tableName}', '{}') RETURNING *;`;
   pgSend(sql, callback);
 }
 
 // Edit table name
 function editTableName(tableId, newName, callback) {
-  const sql = `UPDATE tables SET name = '${newName}' WHERE id = ${tableId};`;
+  const sql = `UPDATE tables SET name = '${newName}', updated_at = CURRENT_TIMESTAMP WHERE id = ${tableId};`;
   pgSend(sql, callback);
 }
 
