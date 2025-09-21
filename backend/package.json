@@ -1,0 +1,28 @@
+{
+  "name": "table-editor-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "description": "Backend for collaborative table editor (Node.js, PostgreSQL, Redis)",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "setup-db": "node setup-database.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "table-editor",
+    "collaborative",
+    "nodejs",
+    "postgresql",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.16.3"
+  }
+}
