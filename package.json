@@ -1,0 +1,25 @@
+{
+  "name": "table-editor-app",
+  "version": "1.0.0",
+  "description": "Interactive Table Editor - Full Stack Application",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm install",
+    "dev": "cd backend && npm run dev",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm run install-backend && npm run install-frontend"
+  },
+  "keywords": [
+    "table-editor",
+    "react",
+    "nodejs",
+    "postgresql"
+  ],
+  "author": "Gurpreet Singh",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
